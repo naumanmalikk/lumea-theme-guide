@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumea — Setup Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+<style>
+  :root{
+    --bg:#FBF8F4; --surface:#FFFFFF; --ink:#2C2A26; --muted:#6E695F;
+    --border:#E5DED2; --accent:#4A5D44; --accent-soft:#EDF1EB; --blush:#F3E4DD;
+    --serif:"Playfair Display",Georgia,serif;
+    --sans:"Nunito Sans","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin-inline:auto;padding:0 clamp(1.25rem,5vw,2.5rem) 5rem}
+  header{padding:clamp(3rem,8vw,5rem) 0 2.5rem;border-bottom:1px solid var(--border);margin-bottom:3rem}
+  .brand{font-family:var(--serif);font-size:2.9rem;font-weight:700;letter-spacing:-.02em;margin:0 0 .35rem}
+  .tag{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .lede{font-size:1.1rem;color:var(--muted);max-width:52ch;margin:1rem 0 0}
+  h2{font-family:var(--serif);font-size:1.65rem;font-weight:600;letter-spacing:-.01em;margin:3rem 0 1rem;scroll-margin-top:1rem}
+  h3{font-size:1.05rem;font-weight:700;margin:2rem 0 .5rem}
+  p{margin:0 0 1rem}
+  a{color:var(--accent)}
+  ol,ul{padding-left:1.3rem;margin:0 0 1rem}
+  li{margin-bottom:.55rem}
+  code{background:var(--accent-soft);padding:.15em .45em;border-radius:3px;font-size:.9em;font-family:ui-monospace,Menlo,monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1.5rem 1.75rem}
+  .toc ol{margin:0;padding-left:1.2rem}
+  .toc a{text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .step{display:flex;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+  .step:last-child{border-bottom:none}
+  .step__n{flex:0 0 34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.9rem}
+  .step__body{flex:1;min-width:0}
+  .step__body p:last-child{margin-bottom:0}
+  .note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:1rem 1.25rem;border-radius:0 4px 4px 0;margin:1.5rem 0;font-size:.95rem}
+  .note strong{display:block;margin-bottom:.25rem}
+  .note--warn{border-left-color:#B4690E;background:#F8EFE2}
+  table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:.94rem}
+  th,td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--border);vertical-align:top}
+  th{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .kicker{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:.5rem}
+  footer{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);font-size:.88rem;color:var(--muted)}
+  @media print{body{background:#fff}.toc{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="tag">Shopify theme &middot; Version 1.15.0 &middot; Meridian Studio</div>
+  <h1 class="brand">Lumea</h1>
+  <p class="lede">A skincare and beauty theme built on Shopify's Online Store 2.0. Everything below takes about fifteen minutes.</p>
+</header>
+
+<div class="toc">
+  <div class="kicker">Contents</div>
+  <ol>
+    <li><a href="#install">Install the theme</a></li>
+    <li><a href="#brand">Set your colours and fonts</a></li>
+    <li><a href="#menus">Build your menus</a></li>
+    <li><a href="#home">Lay out the homepage</a></li>
+    <li><a href="#product">Set up product pages</a></li>
+    <li><a href="#filters">Turn on collection filters</a></li>
+    <li><a href="#features">The signature sections</a></li>
+    <li><a href="#popups">Popups and extras</a></li>
+    <li><a href="#motion">Motion, markets and search</a></li>
+    <li><a href="#pages">Create your pages</a></li>
+    <li><a href="#reference">Settings reference</a></li>
+    <li><a href="#faq">Troubleshooting</a></li>
+  </ol>
+</div>
+
+<h2 id="install">1. Install the theme</h2>
+
+<div class="step">
+  <div class="step__n">1</div>
+  <div class="step__body">
+    <p><strong>Do not unzip <code>lumea-theme.zip</code>.</strong> Shopify needs the zip exactly as supplied.</p>
+  </div>
+</div>
+<div class="step">
+  <div class="step__n">2</div>
+  <div class="step__body">
+    <p>In your Shopify admin, go to <strong>Online Store → Themes</strong>.</p>
+  </div>
+</div>
+<div class="step">
+  <div class="step__n">3</div>
+  <div class="step__body">
+    <p>Under <em>Theme library</em>, click <strong>Add theme → Upload zip file</strong>, choose <code>lumea-theme.zip</code>, and click <strong>Upload file</strong>.</p>
+  </div>
+</div>
+<div class="step">
+  <div class="step__n">4</div>
+  <div class="step__body">
+    <p>When it finishes, click <strong>Customize</strong> to open the theme editor. Everything from here on happens in that editor — you never need to touch code.</p>
+    <p>Publish the theme only once you're happy with it. Until you click <strong>Publish</strong>, your live store is untouched.</p>
+  </div>
+</div>
+
+<div class="note">
+  <strong>Working safely</strong>
+  Customise Lumea while your old theme stays published. Shoppers see no change until you publish.
+</div>
+
+<h2 id="brand">2. Set your colours and fonts</h2>
+
+<p>In the theme editor, open <strong>Theme settings</strong> (the gear icon at the bottom of the left sidebar).</p>
+
+<h3>Colours</h3>
+<p>Lumea uses five colour schemes. Every section lets you pick which one it uses, so changing a scheme updates everywhere it's applied at once.</p>
+
+<table>
+  <thead><tr><th>Scheme</th><th>Used by default for</th></tr></thead>
+  <tbody>
+    <tr><td>Scheme 1</td><td>Page background — soft cream</td></tr>
+    <tr><td>Scheme 2</td><td>White sections, hero text</td></tr>
+    <tr><td>Scheme 3</td><td>Warm sand — benefits row, footer</td></tr>
+    <tr><td>Scheme 4</td><td>Deep sage — announcement bar</td></tr>
+    <tr><td>Scheme 5</td><td>Blush — newsletter</td></tr>
+  </tbody>
+</table>
+
+<p>To rebrand the whole store quickly, change the <strong>Background</strong>, <strong>Text</strong> and <strong>Solid button background</strong> in Scheme 1, then work through the others.</p>
+
+<h3>Typography</h3>
+<p>Under <strong>Typography</strong> you can change the heading and body fonts, their sizes, letter spacing, and whether headings are uppercase. Defaults are Playfair Display for headings and Nunito Sans for body.</p>
+
+
+<h3>Using your own font</h3>
+<p>The font picker only offers Shopify's library. To use a face you have licensed, go to <strong>Online Store → Themes → Edit code → Assets → Add a new asset</strong> and upload the font files, then fill in <strong>Theme settings → Typography → Your own font</strong>.</p>
+<ul>
+  <li>Upload <code>.woff2</code> (and optionally <code>.woff</code> for older browsers). Do not upload <code>.ttf</code> or <code>.otf</code> — they are several times larger for no visible gain.</li>
+  <li>Type the filenames exactly as they appear in Assets, e.g. <code>apercu-regular.woff2</code>.</li>
+  <li>Give the font any name you like — it is only used internally.</li>
+  <li>Choose whether it applies to headings, body text, or both.</li>
+</ul>
+<p>Upload a bold file too if you have one; without it the browser will synthesise bold, which is usually acceptable but never as good.</p>
+<p><strong>Check your licence covers web embedding.</strong> Many desktop font licences do not.</p>
+<h2 id="menus">3. Build your menus</h2>
+
+<p>Menus live in your Shopify admin, not the theme editor: <strong>Online Store → Navigation</strong>.</p>
+<ul>
+  <li><strong>Main menu</strong> — appears in the header. Nested items become dropdowns automatically.</li>
+  <li><strong>Footer menu</strong> — appears in the footer's Shop column.</li>
+</ul>
+<p>Back in the theme editor, click the <strong>Header</strong> section to choose which menu it uses and to upload your logo.</p>
+
+<h3>Mega menu</h3>
+<p>Add a <em>third</em> level to any top-level item and it stops being a small dropdown and opens as a full-width panel instead, with each second-level item becoming a column heading. Two-level items keep the ordinary dropdown, so you do not have to restructure a menu you are happy with.</p>
+<p>So a menu built like this:</p>
+<ul>
+  <li><strong>Shop</strong> → <strong>Cleansers</strong> → Gentle Milk Cleanser, Balancing Gel Wash</li>
+  <li><strong>Shop</strong> → <strong>Serums</strong> → Barrier Repair Serum, Brightening Serum</li>
+</ul>
+<p>gives you a panel with <em>Cleansers</em> and <em>Serums</em> as headings and the products listed underneath. On a phone the same third level appears indented inside the slide-out menu.</p>
+<p>To put a picture in the panel, add a <strong>Mega menu image</strong> block to the Header section and type the top-level item's name (for example <code>Shop</code>) into <strong>Show inside this menu item</strong>. Turn the whole behaviour off with <strong>Use a mega menu for three-level items</strong>.</p>
+
+<h2 id="home">4. Lay out the homepage</h2>
+
+<p>The <strong>Hero banner</strong> takes a <strong>Background video</strong> as well as an image. Set one and it plays muted and looped in place of the photo, with the image used as the poster frame while it loads. Keep the file short and under about 10MB — it competes with everything else for the first paint. Anyone who has asked their device to reduce motion sees the poster image instead, held still.</p>
+
+<p>The homepage ships with nine sections already arranged. Click any of them in the left sidebar to edit, drag to reorder, or use the eye icon to hide one without deleting it.</p>
+
+<table>
+  <thead><tr><th>Section</th><th>What to do</th></tr></thead>
+  <tbody>
+    <tr><td>Announcement bar</td><td>Edit or delete the shipping message.</td></tr>
+    <tr><td>Hero banner</td><td>Add your background image, headline and buttons.</td></tr>
+    <tr><td>Logo list</td><td>Add press logos, or hide it if you have none yet.</td></tr>
+    <tr><td>Featured collection</td><td>Pick which collection to show.</td></tr>
+    <tr><td>Multicolumn</td><td>Your three selling points. Choose an icon or upload an image per column.</td></tr>
+    <tr><td>Image with text</td><td>Your brand story.</td></tr>
+    <tr><td>Collection list</td><td>Choose a collection for each of the three cards.</td></tr>
+    <tr><td>Testimonials</td><td>Replace with real reviews.</td></tr>
+    <tr><td>FAQ</td><td>Edit the three questions; add more with <em>Add block</em>.</td></tr>
+    <tr><td>Newsletter</td><td>Signups land in your Shopify customer list, tagged <code>newsletter</code>.</td></tr>
+  </tbody>
+</table>
+
+<p>To add something new, click <strong>Add section</strong>. Every section is available on every page.</p>
+
+<div class="note">
+  <strong>Image sizes</strong>
+  Hero: 2400 &times; 1400px. Product photos: square or 3:4, at least 1400px on the long edge. Collection images: 1200 &times; 1600px. Shopify handles resizing and serves the right size per device.
+</div>
+
+<h2 id="product">5. Set up product pages</h2>
+
+<p>Open any product from the page dropdown at the top of the theme editor, then click <strong>Product information</strong>.</p>
+
+<p>The page is built from blocks you can reorder or remove: vendor, title, price, inventory status, description, buy buttons, three collapsible rows, and a share button.</p>
+
+<h3>Collapsible rows</h3>
+<p>Three are pre-filled — <em>How to use</em>, <em>Ingredients</em>, <em>Shipping &amp; returns</em>. Edit the text, or add more with <strong>Add block → Collapsible row</strong>.</p>
+
+<h3>Variants</h3>
+<p>If a product has options (size, shade), they appear as selectable pills automatically. Price, availability and the image update as the shopper chooses — no setup needed.</p>
+
+<h3>Low stock</h3>
+<p>The <strong>Inventory status</strong> block shows "Only 3 left" when stock falls below a threshold you set. It only works if inventory tracking is on for that product.</p>
+
+<h2 id="filters">6. Turn on collection filters</h2>
+
+<p>Lumea supports Shopify's storefront filters on both collection pages and search results — by availability, product type, price, colour swatches and more. <strong>The theme displays them; Shopify decides what they are.</strong> That means one setup step:</p>
+
+<div class="step">
+  <div class="step__n">1</div>
+  <div class="step__body">
+    <p>Install <strong>Search &amp; Discovery</strong> from the Shopify App Store. It's free and made by Shopify.</p>
+  </div>
+</div>
+<div class="step">
+  <div class="step__n">2</div>
+  <div class="step__body">
+    <p>Open the app and go to the <strong>Filters</strong> tab. Add the filters you want — Availability and Price are good defaults, then Product type or any tag you use.</p>
+  </div>
+</div>
+<div class="step">
+  <div class="step__n">3</div>
+  <div class="step__body">
+    <p>Visit a collection page. The filter bar appears automatically. Nothing to switch on in the theme.</p>
+  </div>
+</div>
+
+<div class="note--warn note">
+  <strong>No filters showing?</strong>
+  That's expected until the app is installed and at least one filter is configured. It isn't a theme fault — filters simply don't exist on your store yet. You can also hide the bar entirely in the theme editor under <em>Product grid → Show filters</em>.
+</div>
+
+<h3>Live search suggestions</h3>
+<p>Clicking the search icon opens a drawer that suggests products as the shopper types. It works out of the box with no setup. To send shoppers straight to a results page instead, switch off <strong>Theme settings → Search → Show live search suggestions</strong>.</p>
+
+<h2 id="features">7. The signature sections</h2>
+
+<p>Four sections are what set Lumea apart from a generic storefront. All four are optional —
+add or remove them from <strong>Customise &rsaquo; Sections</strong> like any other.</p>
+
+<h3>Skin quiz</h3>
+<p>A multi-step questionnaire that recommends products. Add one <strong>Question</strong> block
+per step, then <strong>Answer</strong> blocks inside it, each pointing at a product. The final
+step shows whatever the shopper's answers matched, with an add-to-cart button. Keep it to
+three questions — completion drops sharply after that.</p>
+
+<h3>Before &amp; after</h3>
+<p>A draggable slider comparing two images. Both must be the <em>same crop, same distance and
+same lighting</em>, or the comparison looks fake the moment the handle moves. Set the starting
+handle position and the two labels in the section settings.</p>
+<div class="note"><strong>Please read.</strong> A before-and-after image is a claim about what
+your product does, and cosmetic efficacy claims are regulated in many countries. Use real,
+unedited photographs of the same person, and only claim what you can evidence. Do not present
+generated or retouched images as results.</div>
+
+<h3>Routine builder</h3>
+<p>Lets a shopper tick several products and add them in one go. Add a <strong>Step</strong>
+block per product — morning, evening, weekly, whatever suits your range. Steps whose product
+is sold out are disabled automatically, and unassigned steps stay hidden from shoppers while
+remaining visible to you in the editor.</p>
+
+<h3>Sticky add to cart</h3>
+<p>A slim bar that appears once the main add-to-cart button scrolls out of view. It mirrors the
+real button, so it disables itself when a sold-out variant is selected. Turn it on in the
+product template's <strong>Sticky add to cart</strong> block.</p>
+
+<h3>Countdown timer</h3>
+<p>Add the <strong>Countdown timer</strong> section anywhere and set <strong>Ends at</strong> in the format <code>YYYY-MM-DD HH:MM</code> using the 24-hour clock. The time is read in <em>your shop's</em> timezone, so a shopper in another country counts down to the same real moment rather than to midnight where they happen to be.</p>
+<p>Choose what happens when it runs out: show a message, hide the whole section, or leave the digits at zero.</p>
+
+<h3>Other sections worth knowing</h3>
+<ul>
+  <li><strong>Blog posts</strong> — your latest articles anywhere, not just on the blog page.</li>
+  <li><strong>Custom Liquid</strong> — app snippets or your own markup, without editing theme files.</li>
+  <li><strong>Ingredients</strong> — an expandable list, useful for INCI or sourcing detail.</li>
+  <li><strong>Video</strong>, <strong>Testimonials</strong>, <strong>FAQ</strong> — block-based, add as many rows as you need.</li>
+</ul>
+
+<h2 id="popups">8. Popups and extras</h2>
+
+<p>All of these live in <strong>Theme settings</strong>, and every one of them except the back-to-top button ships switched off.</p>
+
+<h3>Email signup popup</h3>
+<p><strong>Theme settings → Newsletter popup.</strong> Signups land in Customers tagged <code>newsletter</code>, exactly like the newsletter section. Set how many seconds to wait before it appears, and how many days to leave someone alone once they have closed or completed it. It never appears while you are working in the theme editor.</p>
+
+<h3>Back to top</h3>
+<p><strong>Theme settings → Storefront extras.</strong> On by default. Appears once the shopper is past the distance you set, and moves keyboard focus to the top of the page as well as scrolling there.</p>
+
+<h3>Recent purchase popup and the viewing badge</h3>
+<p><strong>Please read this before switching either on.</strong></p>
+<p>Shopify does not give a theme access to live order data or to how many people are on a page. There is no API for it. That means:</p>
+<ul>
+  <li>The <strong>recent purchase popup</strong> shows a real product, with its real price, image and link, taken from a collection you choose — but the shopper name and place come from the list <em>you</em> type into the settings, paired with the product at random.</li>
+  <li>The <strong>viewing badge</strong> generates its number in the browser from the range you set. It is not a measurement.</li>
+</ul>
+<p>Presenting invented purchases or invented visitor numbers as though they were real is regulated in a number of markets, and buyers increasingly recognise these widgets for what they are. Both ship off. If you turn them on, use wording you would be comfortable defending, and check the rules where you sell.</p>
+<p>Leaving the name list empty makes the popup show the product alone with no attribution, which is honest and still useful — it works as a "popular right now" prompt.</p>
+
+<h2 id="motion">9. Motion, markets and search</h2>
+
+<p>Content fades in as it scrolls into view. Control it under <strong>Theme settings &rsaquo;
+Animations</strong>: turn it off entirely, choose fade / fade-up / fade-and-scale, and set the
+duration.</p>
+<p>Animation switches off automatically for visitors whose device asks for reduced motion, and
+the theme is built so that if scripting fails the content is shown rather than hidden.</p>
+
+<h3>Country, currency and language</h3>
+<p>If you sell into more than one market through Shopify Markets, pickers appear in the footer
+automatically. A single-market store shows nothing, so there is no empty control to hide.
+Toggle it in the Footer section's settings.</p>
+
+<h3>Search engines</h3>
+<p>The theme outputs structured data (JSON-LD) for products, articles and collections — what
+lets Google show price, availability and review stars in results. Nothing to configure; it uses
+your existing product data.</p>
+
+<h2 id="pages">10. Create your pages</h2>
+
+<ol>
+  <li>Go to <strong>Online Store → Pages → Add page</strong> in your admin.</li>
+  <li>For a contact page, set the <strong>Theme template</strong> (bottom right) to <code>contact</code>. That adds a working contact form.</li>
+  <li>Recommended pages: About, Contact, Shipping &amp; Returns, Privacy Policy, Terms of Service.</li>
+</ol>
+
+<h2 id="reference">11. Settings reference</h2>
+
+<table>
+  <thead><tr><th>Setting group</th><th>Controls</th></tr></thead>
+  <tbody>
+    <tr><td>Colors</td><td>All five colour schemes.</td></tr>
+    <tr><td>Typography</td><td>Heading and body fonts, sizes, letter spacing, uppercase.</td></tr>
+    <tr><td>Layout</td><td>Page width, gap between sections, grid spacing.</td></tr>
+    <tr><td>Buttons</td><td>Corner radius (0 = square, 40 = pill), border thickness, uppercase.</td></tr>
+    <tr><td>Product cards</td><td>Image shape, corner radius, hover image, vendor, rating, quick add, sale badge text.</td></tr>
+    <tr><td>Search</td><td>Live search suggestions on or off.</td></tr>
+    <tr><td>Cart</td><td>Drawer or page, order notes, cart message.</td></tr>
+    <tr><td>Social media</td><td>Links for Instagram, TikTok, Facebook, Pinterest, YouTube. Icons appear in the footer only when a link is filled in.</td></tr>
+    <tr><td>Favicon</td><td>32 &times; 32px browser tab icon.</td></tr>
+    <tr><td>Social sharing image</td><td>Fallback preview image when your store is shared.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="faq">12. Troubleshooting</h2>
+
+<h3>The upload failed</h3>
+<p>Make sure you're uploading the zip without unzipping it first. If your browser auto-extracted it, re-download the file or re-compress the folder so <code>assets</code>, <code>config</code>, <code>layout</code>, <code>sections</code>, <code>snippets</code> and <code>templates</code> sit at the top level of the zip.</p>
+
+<h3>My homepage looks empty</h3>
+<p>The demo images aren't included — Shopify doesn't transfer images with a theme. Add your own in the Hero banner and Image with text sections. Products appear once you've assigned a collection to the Featured collection section.</p>
+
+<h3>The cart drawer isn't opening</h3>
+<p>Check <strong>Theme settings → Cart → Cart type</strong> is set to <em>Slide-out drawer</em>. If an app has replaced the cart, set it to <em>Cart page</em> instead.</p>
+
+<h3>Quick add says &ldquo;Choose options&rdquo; on some products</h3>
+<p>Quick add only appears on products with a single variant, because multi-variant products need a choice first. Shoppers click through to the product page instead.</p>
+
+<h3>Star ratings aren't showing</h3>
+<p>Ratings need a reviews app that writes to the standard <code>reviews.rating</code> metafield — Shopify's own Product Reviews app, Judge.me, Loox and Okendo all do. Then switch on <strong>Theme settings → Product cards → Show product rating</strong>.</p>
+
+<h3>I changed a setting and nothing happened</h3>
+<p>Some settings only affect certain sections. Check you're editing the right colour scheme — a section using Scheme 3 won't change when you edit Scheme 1.</p>
+
+<footer>
+  <p><strong>Lumea 1.15.0</strong> by Meridian Studio — built for Shopify Online Store 2.0.</p>
+  <p>Includes 22 sections you can add to any page (35 in total), 5 theme blocks, storefront filters, predictive search, JSON-LD structured data, country/language pickers, and the full set of customer account pages. Tested against Shopify's current theme architecture.</p>
+</footer>
+
+</div>
+</body>
+</html>
